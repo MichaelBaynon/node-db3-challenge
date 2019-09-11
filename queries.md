@@ -6,14 +6,17 @@ join categories
 on products.categoryid = categories.categoryid
 
 ### Display the OrderID and ShipperName for all orders placed before January 9, 1997. Shows 161 records.
-select orderid, shippername from orders where orderdate < 1997-01-09
+select orderid, shippername from orders 
 join shippers
-on orders.shipperid = shippers.shipperid (not working yet)
+on orders.shipperid = shippers.shipperid
+where orderdate < '1997-01-09'
 
 ### Display all ProductNames and Quantities placed on order 10251. Sort by ProductName. Shows 3 records.
-select productname, Quantity, * from OrderDetails where orderid=10251
+select productname, Quantity, * from OrderDetails 
 join products
-on orderdetails.productid = products.productid (not working aswell)
+on orderdetails.productid = products.productid 
+where orderid=10251
+order by productname
 
 
 ### Display the OrderID, CustomerName and the employee's LastName for every order. All columns should be labeled clearly. Displays 196 records.
